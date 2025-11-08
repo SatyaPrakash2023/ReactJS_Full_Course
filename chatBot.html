@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>React Basic</title>
+    <title>Chat Bot</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -12,15 +12,22 @@
 
     <script type="text/babel">
       const container = document.querySelector('.js-container');
-      const button = <button>Click Me!</button>;
-      const paragraph = <p>This is a simple React example.</p>;
-      const div = (<div>
-          <button>Click Me!</button>
-          <p>This is a simple React Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br></br>{1+2} Fugit debitis, quod perspiciatis unde harum commodi quae quas sit earum error molestias ipsum hic ab accusamus doloribus soluta blanditiis exercitationem. Qui!</p>
+      function ChatBotInput(){
+        return (
+          <div>
+              <input placeholder="Type yout message here"></input>
+              <button>Send</button>
+          </div>        
+       )
+       // return <input placeholder="Type yout message here"></input>;  
+      };
+
+
+      const div = (
+        <div>
+          
+          <ChatBotInput />
         </div>);
-
-
-
 
 
       ReactDOM.createRoot(container).render(div);

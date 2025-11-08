@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Sixth Task</title>
+</head>
+<body>
+    <div class="react-container"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const container = document.querySelector('.react-container');
+        console.log(container);
+        const SocksPrice = 10
+        const TshisrtPrice = 8
+        const productCost = 1*SocksPrice + 2*TshisrtPrice;
+        const shippingCost = 5;
+        const totalCost = productCost + shippingCost;
+        console.log("Total Product Cost: $"+ productCost);
+        const displayTotalCost = (
+                <div style={{fontFamily: 'Arial', fontSize: '20px', width: "300px" , padding: '20px', border: '2px solid black',backgroundColor: '#f0f0f0'}}>
+                    <p>Product Cost: ${productCost}</p>
+                    <p>Shipping Cost: ${shippingCost}</p>
+                    <p>Total Cost: ${totalCost}</p>
+                    <button onClick={() =>alert("Button clicked!")}>Place Order</button>
+                </div>
+            );   
+        ReactDOM.createRoot(container).render(displayTotalCost);
+        //ReactDOM.createRoot(container).render();
+
+    </script>    
+</body>
+</html>
