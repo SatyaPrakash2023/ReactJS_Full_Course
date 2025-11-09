@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basic</title>
+  </head>
+  <body style="margin:0;">
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+      function ProductDetails({ productName, productPrice, disCountPrice }) {
+        return (
+          <div
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '18px',
+              width: '300px',
+              height: '220px',                // fixed height for all cards
+              padding: '16px',
+              border: '2px solid #000',
+              backgroundColor: '#f0f0f0',
+              borderRadius: '6px',
+              boxSizing: 'border-box',
+              display: 'flex',
+              flexDirection: 'column',        // stack elements vertically
+            }}
+          >
+            {/* content area */}
+            <div style={{ textAlign: 'center' }}>
+              <h3 style={{ margin: '6px 0' }}>{productName}</h3>
+              <p style={{ margin: '6px 0' }}>Price: {productPrice}</p>
+              {/* reserve the same space for discount even if missing */}
+              <p
+                style={{
+                  margin: '6px 0',
+                  color: 'green',
+                  // keep the line height/space but hide it visually if no discount
+                  visibility: disCountPrice ? 'visible' : 'hidden'
+                }}
+              >
+                Discount: {disCountPrice || ''}
+              </p>
+            </div>
+
+            {/* push the button to the bottom so all buttons line up */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
+              <button
+                style={{
+                  padding: '8px 16px',
+                  border: 'none',
+                  backgroundColor: '#007bff',
+                  color: '#fff',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                }}
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              gap: '16px',
+              minHeight: '100vh',
+              padding: '20px',
+              backgroundColor: '#fafafa',
+              flexWrap: 'nowrap',
+              overflowX: 'auto',
+            }}
+          >
+            <ProductDetails
+              productName="Cotton socks"
+              productPrice="$10.90"
+              disCountPrice="$5.45"
+            />
+            <ProductDetails productName="Tennis balls" productPrice="$6.00" />
+            <ProductDetails productName="Plain T-shirt" productPrice="$7.89" />
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
