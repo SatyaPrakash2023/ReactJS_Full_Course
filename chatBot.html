@@ -14,23 +14,50 @@
       const container = document.querySelector('.js-container');
       function ChatBotInput(){
         return (
-          <div>
-              <input placeholder="Type yout message here"></input>
+          <>
+              <input placeholder="Send a message to chatbot" id="messageInputBar" size="30"/>
               <button>Send</button>
-          </div>        
+          </>        
        )
        // return <input placeholder="Type yout message here"></input>;  
       };
 
+      function ChatMessage({message, sender }){
+        //const message = props.message;//Alternate way to write const {message} = props;
+        //const sender = props.sender;//A;lternate way to write const {sender} = props;
+        // //If you want to extract multiple properties you can do like const {message, sender} = props;
+        //const {message,sender} = props; //Destructuring assignment
+        /*if(sender === "chiti"){
+          return (
+            <div>
+              <img src="chatbotImage.png" width="50p"/>//Commented for better approach in return statement below
+              {message}
+            </div>
+          );
+        }
+        */
+        return (
+          <div>
+            {sender==='chiti'&& <img src="chatbotImage.png" width="50p"/>}
+            {message}
+            {sender ==='User' && <img src="UserProfileImage.png" width="50p"/>}
+          </div>
+        );
+      }
 
-      const div = (
-        <div>
-          
-          <ChatBotInput />
-        </div>);
+      function App(){
+        return (
+          <>
+            <ChatBotInput />
+            <ChatMessage message="hello chatBot" sender="User"/>
+            <ChatMessage message="Hello! I am chiti how can i help you ?" sender="chiti"/>
+            <ChatMessage message="Can you get me today's date ?" sender="User"/>
+            <ChatMessage message="Today is 9th NOV 2025" sender="chiti"/>
+          </>
+        );
+      }
 
-
-      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(container).render(<App/>);
     </script>
   </body>
 </html>
