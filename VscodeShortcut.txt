@@ -1,0 +1,65 @@
+💻 Visual Studio Code Keyboard Shortcuts
+
+
+| **Category**                     | **Action**              | **Windows / Linux**              | **macOS**                     | **Description**                    |
+| -------------------------------- | ----------------------- | -------------------------------- | ----------------------------- | ---------------------------------- |
+| 🧭 **Basic Editing**             | Cut line                | `Ctrl + X`                       | `Cmd + X`                     | Cuts entire line                   |
+|                                  | Copy line               | `Ctrl + C`                       | `Cmd + C`                     | Copies entire line                 |
+|                                  | Move line up/down       | `Alt + ↑ / ↓`                    | `Option + ↑ / ↓`              | Moves current line up or down      |
+|                                  | Duplicate line          | `Shift + Alt + ↑ / ↓`            | `Shift + Option + ↑ / ↓`      | Copies current line above or below |
+|                                  | Delete line             | `Ctrl + Shift + K`               | `Cmd + Shift + K`             | Deletes the current line           |
+|                                  | Insert line below       | `Ctrl + Enter`                   | `Cmd + Enter`                 | Inserts new line below             |
+|                                  | Insert line above       | `Ctrl + Shift + Enter`           | `Cmd + Shift + Enter`         | Inserts new line above             |
+|                                  | Join lines              | `Ctrl + J`                       | `Cmd + J`                     | Joins current and next line        |
+|                                  | Go to start of line     | `Home`                           | `Cmd + ←`                     | Moves to start of line             |
+|                                  | Go to end of line       | `End`                            | `Cmd + →`                     | Moves to end of line               |
+|                                  | Undo                    | `Ctrl + Z`                       | `Cmd + Z`                     | Undo last change                   |
+|                                  | Redo                    | `Ctrl + Y` or `Ctrl + Shift + Z` | `Cmd + Shift + Z`             | Redo last undone change            |
+| 🔍 **Search & Navigation**       | Find                    | `Ctrl + F`                       | `Cmd + F`                     | Open find box                      |
+|                                  | Replace                 | `Ctrl + H`                       | `Cmd + Option + F`            | Find and replace                   |
+|                                  | Find in files           | `Ctrl + Shift + F`               | `Cmd + Shift + F`             | Search across all files            |
+|                                  | Go to file              | `Ctrl + P`                       | `Cmd + P`                     | Quick open files                   |
+|                                  | Go to symbol            | `Ctrl + Shift + O`               | `Cmd + Shift + O`             | Jump to symbol in file             |
+|                                  | Go to line              | `Ctrl + G`                       | `Cmd + G`                     | Jump to specific line number       |
+|                                  | Go to definition        | `F12`                            | `F12`                         | Jump to definition                 |
+|                                  | Peek definition         | `Alt + F12`                      | `Option + F12`                | View inline definition             |
+|                                  | Navigate back/forward   | `Alt + ← / →`                    | `Ctrl + - / Ctrl + Shift + -` | Move through cursor history        |
+| ✍️ **Multi-Cursor & Selection**  | Add cursor up/down      | `Ctrl + Alt + ↑ / ↓`             | `Cmd + Option + ↑ / ↓`        | Adds extra cursors                 |
+|                                  | Select next occurrence  | `Ctrl + D`                       | `Cmd + D`                     | Adds next match to selection       |
+|                                  | Select all occurrences  | `Ctrl + Shift + L`               | `Cmd + Shift + L`             | Selects all matches                |
+|                                  | Column selection        | `Shift + Alt + Drag Mouse`       | `Shift + Option + Drag Mouse` | Selects vertical text block        |
+|                                  | Undo last cursor        | `Ctrl + U`                       | `Cmd + U`                     | Undo last cursor operation         |
+| ⚙️ **Code Editing & Formatting** | Format document         | `Shift + Alt + F`                | `Shift + Option + F`          | Auto-formats code                  |
+|                                  | Format selection        | `Ctrl + K, Ctrl + F`             | `Cmd + K, Cmd + F`            | Format selected text               |
+|                                  | Toggle line comment     | `Ctrl + /`                       | `Cmd + /`                     | Comment or uncomment line          |
+|                                  | Toggle block comment    | `Shift + Alt + A`                | `Shift + Option + A`          | Block comment toggle               |
+|                                  | Fold code               | `Ctrl + Shift + [`               | `Cmd + Option + [`            | Collapse code block                |
+|                                  | Unfold code             | `Ctrl + Shift + ]`               | `Cmd + Option + ]`            | Expand code block                  |
+|                                  | Rename symbol           | `F2`                             | `F2`                          | Rename variable, function, etc.    |
+|                                  | Quick fix / suggestions | `Ctrl + .`                       | `Cmd + .`                     | Show available code actions        |
+|                                  | Show hover info         | `Ctrl + K, Ctrl + I`             | `Cmd + K, Cmd + I`            | Show documentation hover           |
+| 🪟 **File & Window Management**  | New file                | `Ctrl + N`                       | `Cmd + N`                     | Create a new file                  |
+|                                  | Open file               | `Ctrl + O`                       | `Cmd + O`                     | Open existing file                 |
+|                                  | Save file               | `Ctrl + S`                       | `Cmd + S`                     | Save current file                  |
+|                                  | Save all files          | `Ctrl + K, S`                    | `Cmd + Option + S`            | Save all open files                |
+|                                  | Close editor            | `Ctrl + W`                       | `Cmd + W`                     | Close current tab                  |
+|                                  | Close all editors       | `Ctrl + K, Ctrl + W`             | `Cmd + K, Cmd + W`            | Close all open tabs                |
+|                                  | Split editor            | `Ctrl + \`                       | `Cmd + \`                     | Split view                         |
+|                                  | Focus editor group      | `Ctrl + 1 / 2 / 3`               | `Cmd + 1 / 2 / 3`             | Focus specific pane                |
+|                                  | Toggle terminal         | `` Ctrl + ` ``                   | `` Ctrl + ` ``                | Open/close terminal                |
+|                                  | New terminal            | `Ctrl + Shift + ``               | `Cmd + Shift + ``             | Create new terminal instance       |
+|                                  | Toggle sidebar          | `Ctrl + B`                       | `Cmd + B`                     | Show or hide sidebar               |
+|                                  | Toggle fullscreen       | `F11`                            | `Ctrl + Cmd + F`              | Fullscreen mode                    |
+|                                  | Command palette         | `Ctrl + Shift + P`               | `Cmd + Shift + P`             | Open all VS Code commands          |
+|                                  | Settings                | `Ctrl + ,`                       | `Cmd + ,`                     | Open settings                      |
+|                                  | Keyboard shortcuts      | `Ctrl + K, Ctrl + S`             | `Cmd + K, Cmd + S`            | Open shortcut editor               |
+| 🧩 **Debugging**                 | Start / Continue        | `F5`                             | `F5`                          | Start or continue debugging        |
+|                                  | Step over               | `F10`                            | `F10`                         | Step over function                 |
+|                                  | Step into               | `F11`                            | `F11`                         | Step into function                 |
+|                                  | Step out                | `Shift + F11`                    | `Shift + F11`                 | Step out of function               |
+|                                  | Toggle breakpoint       | `F9`                             | `F9`                          | Add/remove breakpoint              |
+|                                  | Stop debugging          | `Shift + F5`                     | `Shift + F5`                  | Stop debugging                     |
+| 💬 **Terminal**                  | Toggle terminal         | `` Ctrl + ` ``                   | `` Ctrl + ` ``                | Show/hide terminal                 |
+|                                  | New terminal            | `Ctrl + Shift + ``               | `Cmd + Shift + ``             | Create new terminal                |
+|                                  | Kill terminal           | `Ctrl + Shift + W`               | `Cmd + Shift + W`             | Close terminal                     |
+|                                  | Clear terminal          | `Ctrl + K`                       | `Cmd + K`                     | Clear terminal output              |
