@@ -12,11 +12,30 @@
 
     <script type="text/babel">
       const container = document.querySelector('.js-container');
-      function ChatBotInput(){
+      function ChatBotInput({chatMessages, setChatMessages}){
+
+        const [inputText, setInputText] = React.useState('');
+
+        function saveInputTextToState(event){
+          setInputText(event.target.value);
+        
+        }
+
+        function sendMessage(){
+          setChatMessages([
+            ...chatMessages, {
+            message: inputText,
+            sender: "User",
+            id: `Uk0${chatMessages.length + 1}`
+          }]);
+          // console.log("Send Message button clicked with message:", inputText);
+          setInputText('');
+        }
+
         return (
           <>
-              <input placeholder="Send a message to chatbot" id="messageInputBar" size="30"/>
-              <button>Send</button>
+              <input placeholder="Send a message to chatbot" id="messageInputBar" size="30" autocomplete="off" onChange={saveInputTextToState} value={inputText}/>
+              <button onClick={sendMessage}>Send</button>
           </>        
        )
        // return <input placeholder="Type yout message here"></input>;  
@@ -45,14 +64,61 @@
         );
       }
 
-      function App(){
+      function ChatMessages({chatMessages}){
+        
         return (
           <>
-            <ChatBotInput />
-            <ChatMessage message="hello chatBot" sender="User"/>
-            <ChatMessage message="Hello! I am chiti how can i help you ?" sender="chiti"/>
-            <ChatMessage message="Can you get me today's date ?" sender="User"/>
-            <ChatMessage message="Today is 9th NOV 2025" sender="chiti"/>
+            {chatMessages.map((chatMessages)=>{
+              return (
+                <ChatMessage message={chatMessages.message} sender={chatMessages.sender} key={chatMessages.id} />
+              );
+            })}
+          </>
+        );  
+      }
+
+      function App(){
+
+        const [chatMessages,setChatMessages] = React.useState([{
+            message: "hello chatBot",
+            sender: "User",
+            id: 'Uk01'
+          },{
+            message: "Hello! I am chiti how can i help you ?",
+            sender: "chiti",
+            id: 'Ch01'
+          },{
+            message: "Can you get me today's date ?",
+            sender: "User",
+            id: 'Uk02'
+          },{
+            message: "Today is 9th NOV 2025",
+            sender: "chiti",
+            id: 'Ch02' 
+         }]);
+        
+        // const chatMessage = arrayMessage[0];
+        // const setChatMessage = arrayMessage[1];
+        //const [chatMessage, setChatMessage] = arrayMessage; 
+        // function sendMessage(){
+        //   console.log("Send Message button clicked");
+        //   const messageInputBar = document.getElementById('messageInputBar');
+        //   const newMessage = messageInputBar.value;
+        //   setChatMessage([
+        //     ...chatMessage, {
+        //     message: newMessage,
+        //     sender: "User",
+        //     id: `Uk0${chatMessage.length + 1}`
+        //   }]);
+        //   console.log(chatMessage);
+        //   messageInputBar.value = '';
+        // } 
+
+
+        return (
+          <>
+            <ChatBotInput  chatMessages={chatMessages} setChatMessages={setChatMessages}/>
+            <ChatMessages chatMessages={chatMessages} />
           </>
         );
       }
