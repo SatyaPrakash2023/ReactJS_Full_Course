@@ -9,35 +9,52 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="chatBotResponseScript.js" defer></script>
 
     <script type="text/babel">
       const container = document.querySelector('.js-container');
-      function ChatBotInput(){
+      function ChatBotInput({chatMessages, setChatMessages}){
+
+        const [inputText, setInputText] = React.useState('');
+
+        function saveInputTextToState(event){
+          setInputText(event.target.value);
+        
+        }
+
+        async function sendMessage(){
+
+          const newChatMessages=[
+            ...chatMessages, {
+            message: inputText,
+            sender: "User",
+            id: `Uk0${chatMessages.length + 1}`
+          }]
+          setChatMessages(newChatMessages);
+          // console.log("Send Message button clicked with message:", inputText);
+          const response = await Chatbot.getResponse(inputText);
+          
+          setChatMessages([
+            ...newChatMessages, {
+            message: response,
+            sender: "chiti",
+            id: `Ch0${chatMessages.length + 1}`
+          }]);
+
+          setInputText('');
+        }
+
         return (
           <>
-              <input placeholder="Send a message to chatbot" id="messageInputBar" size="30"/>
-              <button>Send</button>
+              <input placeholder="Send a message to chatbot" id="user-input" size="30" autoComplete="off" onChange={saveInputTextToState} value={inputText}/>
+              <button onClick={sendMessage} id="send-btn">Send</button>
           </>        
-       )
-       // return <input placeholder="Type yout message here"></input>;  
+       ) 
       };
 
       function ChatMessage({message, sender }){
-        //const message = props.message;//Alternate way to write const {message} = props;
-        //const sender = props.sender;//A;lternate way to write const {sender} = props;
-        // //If you want to extract multiple properties you can do like const {message, sender} = props;
-        //const {message,sender} = props; //Destructuring assignment
-        /*if(sender === "chiti"){
-          return (
-            <div>
-              <img src="chatbotImage.png" width="50p"/>//Commented for better approach in return statement below
-              {message}
-            </div>
-          );
-        }
-        */
         return (
-          <div>
+          <div id="chat">
             {sender==='chiti'&& <img src="chatbotImage.png" width="50p"/>}
             {message}
             {sender ==='User' && <img src="UserProfileImage.png" width="50p"/>}
@@ -45,14 +62,43 @@
         );
       }
 
-      function App(){
+      function ChatMessages({chatMessages}){
+        
         return (
           <>
-            <ChatBotInput />
-            <ChatMessage message="hello chatBot" sender="User"/>
-            <ChatMessage message="Hello! I am chiti how can i help you ?" sender="chiti"/>
-            <ChatMessage message="Can you get me today's date ?" sender="User"/>
-            <ChatMessage message="Today is 9th NOV 2025" sender="chiti"/>
+            {chatMessages.map((chatMessages)=>{
+              return (
+                <ChatMessage message={chatMessages.message} sender={chatMessages.sender} key={chatMessages.id} />
+              );
+            })}
+          </>
+        );  
+      }
+
+      function App(){
+
+        const [chatMessages,setChatMessages] = React.useState([{
+            message: "hello chatBot",
+            sender: "User",
+            id: 'Uk01'
+          },{
+            message: "Hello! I am chiti how can i help you ?",
+            sender: "chiti",
+            id: 'Ch01'
+          },{
+            message: "Can you get me today's date ?",
+            sender: "User",
+            id: 'Uk02'
+          },{
+            message: "Today is 9th NOV 2025",
+            sender: "chiti",
+            id: 'Ch02' 
+         }]);
+        
+        return (
+          <>
+            <ChatBotInput  chatMessages={chatMessages} setChatMessages={setChatMessages}/>
+            <ChatMessages chatMessages={chatMessages} />
           </>
         );
       }
