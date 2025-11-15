@@ -6,6 +6,9 @@ const Chatbot = {
   defaultResponses: {
     // === Static Text Responses ===
       'hello': `Hey there! 👋 How are you doing today?`,
+      'Hello': `Hey there! 👋 How are you doing today?`,
+      'Hi': `Hey there! 👋 How are you doing today?`,
+      'Hey': `Hey there! 👋 How are you doing today?`,
       'hi': `Hey there! 👋 How are you doing today?`,
       'hey': `Hey there! 👋 How are you doing today?`,
       'how are you': `I'm doing great! How can I help you today?`,

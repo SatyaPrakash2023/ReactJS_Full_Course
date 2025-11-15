@@ -23,36 +23,33 @@
         }
 
         async function sendMessage(event){
-
           if(event.type==='keydown' && event.key =='Escape'){
-            setInputText('');
+            return;
           }
 
-          if(event.type==='click'|| event.type==='keydown' && event.key =='Enter'){          
-            const newChatMessages=[
-              ...chatMessages, {
-              message: inputText,
-              sender: "User",
-              id: `Uk0${chatMessages.length + 1}`
-            }]
-            setChatMessages(newChatMessages);
-            // console.log("Send Message button clicked with message:", inputText);
-            const response = await Chatbot.getResponse(inputText);
-            
-            setChatMessages([
-              ...newChatMessages, {
-              message: response,
-              sender: "chiti",
-              id: `Ch0${chatMessages.length + 1}`
-            }]);
+          const newChatMessages=[
+            ...chatMessages, {
+            message: inputText,
+            sender: "User",
+            id: `Uk0${chatMessages.length + 1}`
+          }]
+          setChatMessages(newChatMessages);
+          // console.log("Send Message button clicked with message:", inputText);
+          const response = await Chatbot.getResponse(inputText);
+          
+          setChatMessages([
+            ...newChatMessages, {
+            message: response,
+            sender: "chiti",
+            id: `Ch0${chatMessages.length + 1}`
+          }]);
 
-            setInputText('');
-         }
+          setInputText('');
         }
 
         return (
           <>
-              <input placeholder="Send a message to chatbot" id="user-input" size="30" autoComplete="off" onChange={saveInputTextToState} value={inputText} onKeyDown={sendMessage}/>
+              <input placeholder="Send a message to chatbot" id="user-input" size="30" autoComplete="off" onChange={saveInputTextToState} value={inputText} />
               <button onClick={sendMessage} id="send-btn">Send</button>
           </>        
        ) 

@@ -12,23 +12,35 @@
 
     <script type="text/babel">
       const container = document.querySelector('.js-container');
+        let count = 0;
 
-      function ButtonCounter(){
-        const [count,setCount]=React.useState(0);
+        // function handleClick() {
+        //     // 1. Log "Clicked" to the console as requested
+        //     console.log("Clicked");
 
-        function countClickTime(){
-          console.log("Button Clicked");
-          setCount(count+1);
+        //     // 2. Increment the counter
+        //     clickCount++;
+
+        //     // 3. Get the button element
+        //     const button = document.getElementById('clickButton');
+
+        //     // 4. Update the button's text to show the new count
+        //     button.textContent = `Clicked ${clickCount} times`;
+        // }
+        function CountClickTime(){
+            function countClickTime(){ 
+                console.log("Clicked");
+            }
+
+
+            return <button id="Button" onClick={countClickTime}>
+             Clicked 0 times
+            </button>
+            render(<CountClickTime/>);
         }
-
-        return (
-          <button id="Button" onClick={countClickTime}>
-            Clicked {count} times
-          </button>
-        );
-      }
-
-      ReactDOM.createRoot(container).render(<ButtonCounter/>);
+        
+     
+      ReactDOM.createRoot(container).render(<CountClickTime/>);
     </script>
   </body>
 </html>

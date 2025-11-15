@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basic</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+      function ButtonCounter(){
+        const [count,setCount]=React.useState(0);
+
+        function countClickTime(){
+          console.log("Button Clicked");
+          setCount(count+1);
+        }
+
+        return (
+          <button id="Button" onClick={countClickTime}>
+            Clicked {count} {count === 1 ? "time":"times"}
+          </button>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ButtonCounter />
+            <ButtonCounter />
+          </>
+        )
+      }
+
+
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
